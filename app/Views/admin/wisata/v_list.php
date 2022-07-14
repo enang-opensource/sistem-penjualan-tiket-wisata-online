@@ -42,8 +42,8 @@
                 <td class="text-justify"><?= $value['alamat_wisata']; ?></td>
                 <td class="text-justify"><?=  substr($value['keterangan'], 0, 200); ?>...</td>
                 <td>
-                  <a href="#" class="btn btn-danger">Hapus</a>
-                  <a href="#" class="btn btn-info" style="margin-top:2px;">Ubah&nbsp;&nbsp;&nbsp;</a>
+                  <a href="<?= base_url('admin/wisata/delete/'.$value['id_wisata']); ?>" class="btn btn-danger">Hapus</a>
+                  <a href="<?= base_url('admin/wisata/update/'.$value['id_wisata']); ?>" class="btn btn-info" style="margin-top:2px;">Ubah&nbsp;&nbsp;&nbsp;</a>
                 </td>
               </tr>
             <?php endforeach; ?>

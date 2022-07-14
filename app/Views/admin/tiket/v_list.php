@@ -42,8 +42,8 @@
                 <td>Rp. <?= number_format($value['harga_tiket']); ?></td>
                 <td class="text-justify"><?=  substr($value['keterangan'], 0, 200); ?>...</td>
                 <td>
-                  <a href="#" class="btn btn-danger">Hapus</a>
-                  <a href="#" class="btn btn-info" style="margin-top:2px;">Ubah&nbsp;&nbsp;&nbsp;</a>
+                  <a href="<?= base_url('admin/tiket/delete/'.$value['id_tiket']);  ?>" class="btn btn-danger">Hapus</a>
+                  <a href="<?= base_url('admin/tiket/update/'.$value['id_tiket']); ?>" class="btn btn-info" style="margin-top:2px;">Ubah&nbsp;&nbsp;&nbsp;</a>
                 </td>
               </tr>
             <?php endforeach; ?>

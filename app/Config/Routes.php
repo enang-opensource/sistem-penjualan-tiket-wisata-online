@@ -2,6 +2,8 @@
 
 namespace Config;
 
+use App\Controllers\AuthController;
+
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
@@ -31,16 +33,77 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'GuestController::wisata');
 
+// auth
+$routes->add('login', 'AuthController::login');
+$routes->add('login/process', 'AuthController::loginProcess');
+$routes->add('register', 'AuthController::register');
+$routes->add('register/process', 'AuthController::registerProcess');
+$routes->add('logout', 'AuthController::logout');
+
+
+//
+$routes->add('admin', 'AuthController::login');
+$routes->add('admin/login', 'AuthController::login');
+
+// guest route
+$routes->group('guest', ['namespace' => 'App\Controllers'], function ($subroutes) {
+  $subroutes->group('', ['namespace' => 'App\Controllers'], function ($routes) {
+    $routes->add('about', 'GuestController::about');
+    $routes->add('kontak', 'GuestController::kontak');
+  });
+
+  // start wisata
+  $subroutes->group('add_komentar', ['namespace' => 'App\Controllers'], function ($routes) {
+    $routes->add('', 'GuestController::add_komentar');
+  });
+  // end wisata
+
+  // start wisata
+  $subroutes->group('wisata', ['namespace' => 'App\Controllers'], function ($routes) {
+    $routes->add('', 'GuestController::wisata');
+    $routes->add('wisata_detail/(:any)', 'GuestController::detail/$1');
+  });
+  // end wisata
+
+  // start informasi
+  $subroutes->group('informasi', ['namespace' => 'App\Controllers'], function ($routes) {
+    $routes->add('', 'GuestController::informasi');
+    $routes->add('informasi_detail/(:any)', 'GuestController::informasi_detail/$1');
+  });
+  // end informasi
+
+  $subroutes->group('transaksi', function ($routes) {
+    $routes->add('', 'GuestController::transaksi');
+  });
+
+  //starts midtrans
+  $subroutes->group('midtrans', function ($routes) {
+    $routes->add('', 'Snap::token');
+    $routes->add('finish', 'Snap::finish');
+    $routes->add('update', 'Notification::index');
+  });
+  //end midtrans
+});
 
 $routes->group('admin', ['namespace' => 'App\Controllers'], function ($subroutes) {
+
+  //starts wisata
+  $subroutes->group('index', ['namespace' => 'App\Controllers'], function ($routes) {
+    $routes->add('', 'AdminController::index');
+  });
+  //end wisata
 
   //starts wisata
   $subroutes->group('wisata', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->add('', 'AdminController::add_wisata');
     $routes->add('insert', 'AdminController::add_wisata_proses');
     $routes->add('list', 'AdminController::list_wisata');
+    $routes->add('update/(:any)', 'AdminController::update_wisata/$1');
+    $routes->add('update_proses', 'AdminController::edit_wisata_proses');
+    $routes->add('delete/(:any)', 'AdminController::delete_wisata/$1');
+    $routes->add('delete_img/(:any)', 'AdminController::delete_img/$1');
   });
   //end wisata
 
@@ -49,6 +112,9 @@ $routes->group('admin', ['namespace' => 'App\Controllers'], function ($subroutes
     $routes->add('', 'AdminController::add_informasi');
     $routes->add('insert', 'AdminController::add_informasi_proses');
     $routes->add('list', 'AdminController::list_informasi');
+    $routes->add('update/(:any)', 'AdminController::update_informasi/$1');
+    $routes->add('update_proses', 'AdminController::edit_informasi_proses');
+    $routes->add('delete/(:any)', 'AdminController::delete_informasi/$1');
   });
   //end informasi
 
@@ -57,6 +123,10 @@ $routes->group('admin', ['namespace' => 'App\Controllers'], function ($subroutes
     $routes->add('', 'AdminController::add_tiket');
     $routes->add('insert', 'AdminController::add_tiket_proses');
     $routes->add('list', 'AdminController::list_tiket');
+    $routes->add('update/(:any)', 'AdminController::update_tiket/$1');
+    $routes->add('update_proses', 'AdminController::edit_tiket_proses');
+    $routes->add('delete/(:any)', 'AdminController::delete_tiket/$1');
+
   });
   //end tiket
 

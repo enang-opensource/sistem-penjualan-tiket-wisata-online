@@ -15,7 +15,7 @@ class M_transaksi extends Model
   // protected $useSoftDeletes = true;
 
   // set untuk kolom yang dapat di insert atau diupdate
-  protected $allowedFields = ['id_tiket', 'id_user', 'jumlah_beli', 'total_harga', 'bank', 'no_virtual', 'no_order', 'status'];
+  protected $allowedFields = ['id_tiket', 'id_user', 'jumlah_beli', 'total_harga', 'bank', 'no_virtual', 'no_order', 'status', 'tanggal_transaksi'];
 
   #mengambil semua data tiket
   public function insert_data($data)
@@ -23,13 +23,30 @@ class M_transaksi extends Model
     return $this->insert($data);
   }
 
+  #update data transaksi
+  public function update_data($id, $data)
+  {
+    return $this->set($data)->where('no_order', $id)->update();
+  }
+
   #mengambil semua data tiket dan wisata
   public function getTransaksi()
   {
-    return $this->select(['tb_user.fname', 'tb_user.lname', 'tb_wisata.wisata_name', 'tb_tiket.tanggal_buka', 'tb_transaksi.jumlah_beli', 'tb_transaksi.total_harga', 'tb_transaksi.bank', 'tb_transaksi.no_virtual', 'tb_transaksi.no_order', 'tb_transaksi.status'])
+    return $this->select(['tb_user.fname', 'tb_user.lname', 'tb_wisata.wisata_name', 'tb_tiket.tanggal_buka', 'tb_transaksi.jumlah_beli', 'tb_transaksi.total_harga', 'tb_transaksi.bank', 'tb_transaksi.no_virtual', 'tb_transaksi.no_order', 'tb_transaksi.status', 'tb_transaksi.tanggal_transaksi'])
     ->join('tb_tiket', 'tb_tiket.id_tiket = tb_transaksi.id_tiket')
     ->join('tb_wisata', 'tb_wisata.id_wisata = tb_tiket.id_wisata')
     ->join('tb_user', 'tb_user.id_user = tb_transaksi.id_user')
+    ->get()
+    ->getResultArray();
+  }
+
+  public function getTransaksiWhere($id_user)
+  {
+    return $this->select(['tb_user.fname', 'tb_user.lname', 'tb_wisata.wisata_name', 'tb_tiket.tanggal_buka', 'tb_transaksi.jumlah_beli', 'tb_transaksi.total_harga', 'tb_transaksi.bank', 'tb_transaksi.no_virtual', 'tb_transaksi.no_order', 'tb_transaksi.status', 'tb_transaksi.tanggal_transaksi'])
+    ->join('tb_tiket', 'tb_tiket.id_tiket = tb_transaksi.id_tiket')
+    ->join('tb_wisata', 'tb_wisata.id_wisata = tb_tiket.id_wisata')
+    ->join('tb_user', 'tb_user.id_user = tb_transaksi.id_user')
+    ->where('tb_transaksi.id_user', $id_user)
     ->get()
     ->getResultArray();
   }

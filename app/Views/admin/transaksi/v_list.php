@@ -43,13 +43,13 @@
                 <td><?= $value['wisata_name']; ?></td>
                 <td><?= $value['jumlah_beli']; ?></td>
                 <td>Rp. <?= number_format($value['total_harga']); ?></td>
-                <td><?=  uppercase($value['bank']); ?></td>
-                <td><?=  uppercase($value['no_order']); ?></td>
+                <td><?=  strtoupper($value['bank']); ?></td>
+                <td><?=  strtoupper($value['no_order']); ?></td>
                 <?php if ($value['status']=='1'){ ?>
                   <td><span class="badge badge-success">DIBAYAR</span></td>
-                <?php } if ($value['status']=='0'){ ?>
+                <?php } elseif ($value['status']=='0'){ ?>
                   <td><span class="badge badge-secondary">PENDING</span></td>
-                <?php } else{ ?>
+                <?php } else { ?>
                   <td><span class="badge badge-danger">BATAL</span></td>
                 <?php } ?>
               </tr>

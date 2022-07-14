@@ -33,8 +33,8 @@ class Database extends Config
     public $default = [
         'DSN'      => '',
         'hostname' => 'localhost',
-        'username' => 'mdhifta',
-        'password' => 'shoera',
+        'username' => 'root',
+        'password' => '',
         'database' => 'db_wisata',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',

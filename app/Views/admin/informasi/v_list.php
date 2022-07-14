@@ -36,8 +36,8 @@
                 <td><?= $value['judul_informasi']; ?></td>
                 <td class="text-justify"><?=  substr($value['kontent_informasi'], 0, 200); ?>...</td>
                 <td>
-                  <a href="#" class="btn btn-danger">Hapus</a>
-                  <a href="#" class="btn btn-info" style="margin-top:2px;">Ubah&nbsp;&nbsp;&nbsp;</a>
+                  <a href="<?= base_url('admin/informasi/delete/'.$value['id_informasi']); ?>" class="btn btn-danger">Hapus</a>
+                  <a href="<?= base_url('admin/informasi/update/'.$value['id_informasi']); ?>" class="btn btn-info" style="margin-top:2px;">Ubah&nbsp;&nbsp;&nbsp;</a>
                 </td>
               </tr>
             <?php endforeach; ?>

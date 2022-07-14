@@ -28,7 +28,7 @@
           <span></span>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="<?= base_url('admin/index'); ?>">
             <i class="mdi mdi-view-quilt menu-icon"></i>
             <span class="menu-title">Dashboard</span>
           </a>
@@ -37,21 +37,22 @@
           <p>Components</p>
           <span></span>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+          <a class="nav-link" data-toggle="collapse" href="#ui-wisata" aria-expanded="false" aria-controls="ui-wisata">
             <i class="mdi mdi-instagram menu-icon"></i>
             <span class="menu-title">Master Wisata</span>
             <i class="menu-arrow"></i>
           </a>
-          <div class="collapse" id="ui-basic">
+          <div class="collapse" id="ui-wisata">
             <ul class="nav flex-column sub-menu">
               <li class="nav-item"> <a class="nav-link" href="<?= base_url('admin/wisata'); ?>">Tambah Wisata</a></li>
-              <li class="nav-item"> <a class="nav-link" href="<?= base_url('admin/wisata/list'); ?>">Data Wisata</a></li>
             </ul>
           </div>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link" data-toggle="collapse" href="#ui-informasi" aria-expanded="false" aria-controls="ui-basic">
+          <a class="nav-link" data-toggle="collapse" href="#ui-informasi" aria-expanded="false" aria-controls="ui-informasi">
             <i class="mdi mdi-information-outline menu-icon"></i>
             <span class="menu-title">Master Informasi</span>
             <i class="menu-arrow"></i>
@@ -59,12 +60,12 @@
           <div class="collapse" id="ui-informasi">
             <ul class="nav flex-column sub-menu">
               <li class="nav-item"> <a class="nav-link" href="<?= base_url('admin/informasi'); ?>">Tambah Informasi</a></li>
-              <li class="nav-item"> <a class="nav-link" href="<?= base_url('admin/informasi/list'); ?>">Data Informasi</a></li>
             </ul>
           </div>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link" data-toggle="collapse" href="#ui-tiket" aria-expanded="false" aria-controls="ui-basic">
+          <a class="nav-link" data-toggle="collapse" href="#ui-tiket" aria-expanded="false" aria-controls="ui-tiket">
             <i class="mdi mdi-ticket-account menu-icon"></i>
             <span class="menu-title">Master Tiket</span>
             <i class="menu-arrow"></i>
@@ -72,12 +73,12 @@
           <div class="collapse" id="ui-tiket">
             <ul class="nav flex-column sub-menu">
               <li class="nav-item"> <a class="nav-link" href="<?= base_url('admin/tiket'); ?>">Tambah Tiket</a></li>
-              <li class="nav-item"> <a class="nav-link" href="<?= base_url('admin/tiket/list'); ?>">List Tiket</a></li>
             </ul>
           </div>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link" data-toggle="collapse" href="#ui-transaksi" aria-expanded="false" aria-controls="ui-basic">
+          <a class="nav-link" data-toggle="collapse" href="#ui-transaksi" aria-expanded="false" aria-controls="ui-transaksi">
             <i class="mdi mdi-wallet menu-icon"></i>
             <span class="menu-title">Master Transaksi</span>
             <i class="menu-arrow"></i>
@@ -115,7 +116,7 @@
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="mdi mdi-menu"></span>
           </button>
-          <h4 class="font-weight-bold mb-0 d-none d-md-block mt-1">&ensp;&ensp;Welcome back, Brandon Haynes</h4>
+          <h4 class="font-weight-bold mb-0 d-none d-md-block mt-1">&ensp;&ensp;Welcome back, <?= session()->get('nama'); ?></h4>
           <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item">
               <h4 class="mb-0 font-weight-bold d-none d-xl-block"><?= date("F, d Y"); ?></h4>
@@ -129,14 +130,14 @@
           <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                <span class="nav-profile-name text-white">Eleanor Richardson</span>
+                <span class="nav-profile-name text-white"><?= session()->get('nama'); ?></span>
               </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                <a class="dropdown-item">
+                <!-- <a class="dropdown-item">
                   <i class="mdi mdi-settings text-primary"></i>
                   Settings
-                </a>
-                <a class="dropdown-item">
+                </a> -->
+                <a class="dropdown-item" href="<?= base_url('logout'); ?>">
                   <i class="mdi mdi-logout text-primary"></i>
                   Logout
                 </a>

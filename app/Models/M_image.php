@@ -28,4 +28,26 @@ class M_image extends Model
     return $this->insert($data);
   }
 
+  public function getDataId($id_wisata)
+  {
+    return $this->query("SELECT * FROM tb_gambar WHERE id_wisata='$id_wisata'")->getResultArray();
+  }
+
+  public function getDataGambar($id_gambar)
+  {
+    return $this->query("SELECT * FROM tb_gambar WHERE id_gambar='$id_gambar'")->getRowArray();
+  }
+
+  #hapus data wisata
+  public function delete_data($id_wisata)
+  {
+    return $this->query("DELETE FROM tb_gambar WHERE id_wisata='$id_wisata'");
+  }
+
+  #hapus data wisata
+  public function delete_gambar($id_gambar)
+  {
+    return $this->query("DELETE FROM tb_gambar WHERE id_gambar='$id_gambar'");
+  }
+
 }

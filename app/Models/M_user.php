@@ -29,4 +29,8 @@ class M_user extends Model
     return $this->insert($data);
   }
 
+  public function getDetail($id_user)
+  {
+    return $this->query("SELECT * FROM tb_user WHERE id_user='$id_user'")->getRowArray();
+  }
 }
