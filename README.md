@@ -1,63 +1,51 @@
-# CodeIgniter 4 Application Starter
+# Sistem Penjualan Tiket Wisata Online
+Sistem Penjualan Tiket Wisata Online adalah project lama saya yang dikerjakan dalam waktu 1 minggu, aplikasi ini sudah terintegrasi dengan pembayaran midtrans dan juga dapat digunakan untuk melakukan transaksi. Untuk Api yang digunakan untuk menentukan lokasi menggunakan Openstreet Maps dan juga Google Maps. berikut spesifikasi tentang website aplikasi penjualan tiket wisata online.
 
-## What is CodeIgniter?
+* Menggunakan bahasa pemerograman PHP dan javascript
+* Menggunakan Framework CI4 (Rekomendasi untuk PHP 7.4 - 8.0)
+* Menggunakan Midtrans, Openstreet Maps, Google Maps
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](http://codeigniter.com).
+Berikut fiture yang ada di aplikasi ini,
+* Fiture tambah, edit, hapus dan lihat data wisata
+* Fiture tambah, edit, hapus dan lihat data informasi
+* Fiture tambah, edit, hapus dan lihat data tiket
+* Regitser & Login
+* Fiture Transaksi (Penjualan dan Pembelian)
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+Untuk request database dan juga sumbangan bisa menghubungi mdhiftaa@gmail.com
 
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
+Berikut tampilan aplikasi tiket wisata online
 
-The user guide corresponding to this version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+# Landing Page
 
-## Installation & updates
+* Home Page 
+![home-page](https://user-images.githubusercontent.com/53687992/178889514-209aeab1-5519-49c3-8f53-ac5a90500fcf.PNG)
+![home-page 2](https://user-images.githubusercontent.com/53687992/178889511-5d34f2a3-caf9-4add-93f1-7719c6e6582c.PNG)
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+* Tentang Page
+![tentang-page](https://user-images.githubusercontent.com/53687992/178889435-ac8b306f-3393-4a24-94ca-23f42a141e5e.PNG)
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+* Budaya Page 
+![budaya-page](https://user-images.githubusercontent.com/53687992/178889499-ddc2d563-dd60-4ab7-a622-1a821074b218.PNG)
+![page-budaya-detail](https://user-images.githubusercontent.com/53687992/178889635-81bfd856-b8ee-4467-844a-c3a27a1f9f79.PNG)
 
-## Setup
+* Lokasi Page dan Pembelian
+![page-lokasi](https://user-images.githubusercontent.com/53687992/178889638-11e36ff1-b3f6-445c-b815-9efe1348346e.PNG)
+![beli-tiket](https://user-images.githubusercontent.com/53687992/178889490-295c5d8d-4981-4e12-8baa-82df099447c7.PNG)
+![midtrans-page](https://user-images.githubusercontent.com/53687992/178889599-9168aaf7-e0d7-4b2c-b880-cc0a28de7759.PNG)
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+* Riwayat Pembelian
+![riwayat-page](https://user-images.githubusercontent.com/53687992/178889641-e5ce2821-cb08-407d-91a1-457cca976a3f.PNG)
 
-## Important Change with index.php
+# Admin Page
+* Add Informasi dan Kelola Informasi
+![add-informasi-admin](https://user-images.githubusercontent.com/53687992/178895375-d5ac3f63-9e5f-4c49-99d4-97bf4e43ab5b.PNG)
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+* Add Wisata dan Kelola Wisata
+![add-wisata-admin](https://user-images.githubusercontent.com/53687992/178895386-340ae2a1-85cc-40cb-b130-491c1a9f232c.PNG)
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+* Add Tiket dan kelola tiket
+![tambah-tiket-admin](https://user-images.githubusercontent.com/53687992/178895391-35066003-4b99-454b-a37a-b4c829fb183a.PNG)
 
-**Please** read the user guide for a better explanation of how CI4 works!
-
-## Repository Management
-
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Server Requirements
-
-PHP version 7.3 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
-- xml (enabled by default - don't turn it off)
+* Riwayat Transaksi
+![transaksi-admin](https://user-images.githubusercontent.com/53687992/178895393-5f06765a-d217-42b4-8c6a-910b6c055d11.PNG)
